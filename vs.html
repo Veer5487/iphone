@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    .header-media {
+      width: 100%;
+      transition: width 0.1s linear;
+    }
+
+    .spacer {
+      height: 2000px; /* for scrolling */
+    }
+  </style>
+</head>
+<body>
+
+  <video class="header-media" autoplay muted loop src="ivideo.mp4"></video>
+
+  <div class="spacer"></div>
+
+  <script>
+    const media = document.querySelector('.header-media');
+
+    window.addEventListener('scroll', () => {
+      const maxScroll = 300;
+      const scrollTop = window.scrollY;
+      const progress = Math.min(scrollTop / maxScroll, 1);
+      const newWidth = 100 - progress * 50; 
+
+      media.style.width = `${newWidth}%`;
+    });
+  </script>
+
+</body>
+</html>
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    body {
+      margin: 0;
+      /* background: #111; */
+      color: white;
+      font-family: sans-serif;
+    }
+
+    .video-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 50px;
+      transition: all 0.3s ease;
+    }
+
+    video {
+      width: 100%;
+      max-width: 1000px;
+      transition: width 0.1s ease;
+    }
+
+    .spacer {
+      height: 2000px; /* For scroll space */
+    }
+  </style>
+</head>
+<body>
+
+  <div class="video-container">
+    <video class="scroll-video" autoplay muted loop src="ivideo.mp4"></video>
+  </div>
+
+  <div class="spacer"></div>
+
+  <script>
+    const video = document.querySelector('.scroll-video');
+    const maxScroll = 500; // scroll limit for shrinking
+    const minWidth = 50;   // minimum width percentage (centered)
+
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const progress = Math.min(scrollTop / maxScroll, 1);
+      const newWidth = 100 - progress * (100 - minWidth); // shrink from 100% to minWidth%
+
+      video.style.width = `${newWidth}%`;
+    });
+  </script>
+
+</body>
+</html> -->
+

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      .navbar .dropdown {
+        display: none;
+        position: absolute;
+        background: white;
+        width: 200px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease-in-out;
+        filter: blur(200);
+      }
+
+      .menu-item {
+        position: relative;
+      }
+
+      .menu-item:hover .dropdown {
+        display: block;
+      }
+
+      .navbar .dropdown {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+      }
+
+      .menu-item:hover .dropdown {
+        max-height: 500px; /* or any max you expect */
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <ul>
+        <li class="menu-item">
+          Menu
+          <div class="dropdown">
+            <a href="#">Option 1</a>
+            <a href="#">Option 2</a>
+            <a href="#">Option 3</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="navbar">
+    <ul>
+      <li class="menu-item" id="menuItem">
+        Menu
+        <div class="dropdown" id="dropdownMenu">
+          <a href="#">Option 1</a>
+          <a href="#">Option 2</a>
+          <a href="#">Option 3</a>
+        </div>
+      </li>
+    </ul>
+  </nav>
+  .navbar {
+    background-color: #333;
+    padding: 10px;
+  }
+  
+  .menu-item {
+    position: relative;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    display: none;
+    flex-direction: column;
+    min-width: 150px;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .dropdown a {
+    padding: 10px;
+    color: black;
+    text-decoration: none;
+  }
+  
+  .dropdown a:hover {
+    background-color: #f0f0f0;
+  }
+  const menuItem = document.getElementById('menuItem');
+  const dropdown = document.getElementById('dropdownMenu');
+  
+  // Show dropdown on mouse enter
+  menuItem.addEventListener('mouseenter', () => {
+    dropdown.style.display = 'flex';
+  });
+  
+  // Hide dropdown on mouse leave
+  menuItem.addEventListener('mouseleave', () => {
+    dropdown.style.display = 'none';
+  });
+      
